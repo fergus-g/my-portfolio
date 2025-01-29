@@ -2,7 +2,7 @@ import { PopoverGroup } from "@headlessui/react";
 
 export default function Header() {
   return (
-    <header className="bg-white">
+    <header className="bg-purple">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
