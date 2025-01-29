@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import About from "./components/About/About.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import { CarouselDefault } from "./components/Carousel/Carousel.jsx";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <main className="flex-grow">
         <About />
       </main>
-
+      <CarouselDefault />
       <Footer />
     </div>
   );
