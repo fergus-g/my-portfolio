@@ -10,8 +10,6 @@ import { SiJest, SiVitest } from "react-icons/si";
 const links = [
   { name: "GitHub", href: "https://github.com/fergus-g" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/fergus-gildea/" },
-  { name: "Our values", href: "#" },
-  { name: "Meet our leadership", href: "#" },
 ];
 const techStack = [
   { name: "React", icon: <FaReact className="text-4xl text-blue-500" /> },
@@ -29,11 +27,6 @@ const techStack = [
 export default function About() {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <img
-        alt=""
-        src="/src/assets/blue-background-7470781_1280.jpg"
-        className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
-      />
       <div
         aria-hidden="true"
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
