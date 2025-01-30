@@ -6,6 +6,7 @@ import {
   FaJsSquare,
 } from "react-icons/fa"; // Import icons from react-icons
 import { SiJest, SiVitest } from "react-icons/si";
+import { IconDeviconPlainPostgresql } from "../Icon/IconDeviconPlainPostgresql";
 
 const links = [
   { name: "GitHub", href: "https://github.com/fergus-g" },
@@ -22,6 +23,10 @@ const techStack = [
   { name: "CSS3", icon: <FaCss3Alt className="text-4xl text-blue-500" /> },
   { name: "Vitest", icon: <SiVitest className="text-4xl text-green-500" /> },
   { name: "Jest", icon: <SiJest className="text-4xl text-red-500" /> },
+  {
+    name: "Postgresql",
+    icon: <IconDeviconPlainPostgresql className="text-4xl text-grey-500" />,
+  },
 ];
 
 export default function About() {
