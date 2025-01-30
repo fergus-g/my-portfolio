@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer.jsx";
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow">
         <About />
       </main>
