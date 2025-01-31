@@ -4,6 +4,8 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
+  FaGithub,
+  FaLinkedin,
 } from "react-icons/fa"; // Import icons from react-icons
 import { SiJest, SiVitest } from "react-icons/si";
 import { IconDeviconPlainPostgresql } from "../Icon/IconDeviconPlainPostgresql";
@@ -25,7 +27,7 @@ const techStack = [
   { name: "Jest", icon: <SiJest className="text-4xl text-red-500" /> },
   {
     name: "Postgresql",
-    icon: <IconDeviconPlainPostgresql className="text-4xl text-grey-500" />,
+    icon: <IconDeviconPlainPostgresql className="text-4xl text-white" />,
   },
 ];
 
@@ -71,7 +73,14 @@ export default function About() {
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
             {links.map((link) => (
               <a key={link.name} href={link.href}>
-                {link.name} <span aria-hidden="true">&rarr;</span>
+                {link.name}{" "}
+                <span aria-hidden="true">
+                  {link.name === "GitHub" ? (
+                    <FaGithub className="text-4xl text-black-500" />
+                  ) : (
+                    <FaLinkedin className="text-4xl text-blue-500" />
+                  )}
+                </span>
               </a>
             ))}
           </div>
