@@ -72,26 +72,38 @@ export default function About() {
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
             {links.map((link) => (
-              <a key={link.name} href={link.href}>
-                {link.name}{" "}
+              <a
+                key={link.name}
+                href={link.href}
+                className="flex items-center gap-2"
+              >
+                {link.name}
                 <span aria-hidden="true">
                   {link.name === "GitHub" ? (
-                    <FaGithub className="text-4xl text-black-500" />
+                    <FaGithub className="text-2xl text-black-500" />
                   ) : (
-                    <FaLinkedin className="text-4xl text-blue-500" />
+                    <FaLinkedin className="text-2xl text-blue-500" />
                   )}
                 </span>
               </a>
             ))}
           </div>
-          <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-            {techStack.map((tech) => (
-              <div key={tech.name} className="flex flex-col items-center gap-1">
-                <dd className="text-4xl">{tech.icon}</dd>
-                <dt className="text-base/7 text-gray-300">{tech.name}</dt>
-              </div>
-            ))}
-          </dl>
+          <div className="flex flex-col pt-8">
+            <p className="text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
+              Tech Stack
+            </p>
+            <dl className="mt-4 grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-4">
+              {techStack.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex flex-col items-center gap-1"
+                >
+                  <dd className="text-4xl">{tech.icon}</dd>
+                  <dt className="text-base/7 text-gray-300">{tech.name}</dt>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </div>
     </div>
