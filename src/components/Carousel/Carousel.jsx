@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const projects = [
   {
@@ -22,20 +22,38 @@ const projects = [
 export default function Carousel() {
   const [activeSlide, setActiveSlide] = useState(0);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % projects.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(intervalId); // Clean up interval on unmount
+  }, []);
+
   const handleNext = () => {
     setActiveSlide((prev) => (prev + 1) % projects.length);
+    resetAutoSlide();
   };
 
   const handlePrev = () => {
     setActiveSlide((prev) => (prev - 1 + projects.length) % projects.length);
+    resetAutoSlide();
+  };
+
+  const resetAutoSlide = () => {
+    // Clear and reset the interval to start from the current slide
+    clearInterval(window.autoSlideInterval);
+    window.autoSlideInterval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % projects.length);
+    }, 5000);
   };
 
   return (
     <div className="flex flex-col items-center mt-10">
       <h2 className="text-2xl font-bold mb-4">Personal Projects</h2>
-      <div className="flex items-center justify-center w-3/4 gap-10">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center w-full gap-10 max-w-[90%] md:max-w-[75%] mx-auto">
         {/* Left: Text Section with Matching Height */}
-        <div className="w-1/3 bg-[#f4f4f4] p-6 rounded-2xl shadow-lg flex flex-col justify-center h-full">
+        <div className="w-full md:w-1/3 bg-[#f4f4f4] p-6 rounded-2xl shadow-lg flex flex-col justify-center h-auto max-h-[400px] overflow-y-auto">
           <h3 className="text-xl font-semibold text-gray-900 mb-2">
             {projects[activeSlide].title}
           </h3>
@@ -43,28 +61,40 @@ export default function Carousel() {
         </div>
 
         {/* Right: Carousel */}
-        <div className="carousel w-2/3 h-full flex items-center">
-          <div className="carousel-item relative w-full">
-            <a
-              href={projects[activeSlide].link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block pointer-events-auto"
-            >
-              <img
-                src={projects[activeSlide].image}
-                className="w-full cursor-pointer rounded-2xl h-full object-cover"
-                alt={projects[activeSlide].title}
-              />
-            </a>
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <button onClick={handlePrev} className="btn btn-circle">
-                ❮
-              </button>
-              <button onClick={handleNext} className="btn btn-circle">
-                ❯
-              </button>
-            </div>
+        <div className="relative w-full md:w-2/3 h-full overflow-hidden">
+          {/* Wrapper for all slides */}
+          <div
+            className="flex transition-all duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${activeSlide * 100}%)`, // Slide the wrapper, not the carousel
+            }}
+          >
+            {projects.map((project, index) => (
+              <div key={project.id} className="w-full flex-shrink-0">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block pointer-events-auto"
+                >
+                  <img
+                    src={project.image}
+                    className="w-full cursor-pointer rounded-2xl h-full object-cover"
+                    alt={project.title}
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Buttons to control the slides */}
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <button onClick={handlePrev} className="btn btn-circle">
+              ❮
+            </button>
+            <button onClick={handleNext} className="btn btn-circle">
+              ❯
+            </button>
           </div>
         </div>
       </div>

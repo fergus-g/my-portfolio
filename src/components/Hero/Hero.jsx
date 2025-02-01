@@ -33,7 +33,15 @@ const techStack = [
 
 export default function About() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 min-h-screen">
+      {/* Your email link in the top-right corner */}
+
+      <a
+        href="mailto:fergus.gildea@hotmail.com"
+        className="absolute top-4 right-4 text-white text-lg hover:text-gray-400 transition-colors"
+      >
+        Contact: fergus.gildea@hotmail.com
+      </a>
       <div
         aria-hidden="true"
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -60,13 +68,13 @@ export default function About() {
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+          <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl pt-50">
             Fergus Gildea - Software Developer
           </h2>
           <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
             Hi, I&apos;m Fergus. With nearly a decade in the tech industry
             working in project management, security and operations I am taking
-            the next step and using software to solve problems
+            the next step and using software to solve problems.
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
