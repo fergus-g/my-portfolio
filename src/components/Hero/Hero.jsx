@@ -1,13 +1,14 @@
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa"; // Import burger and close icons
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // Import icons
 import {
   FaReact,
+  FaJsSquare,
   FaNodeJs,
   FaHtml5,
   FaCss3Alt,
-  FaJsSquare,
-  FaGithub,
-  FaLinkedin,
-} from "react-icons/fa"; // Import icons from react-icons
-import { SiJest, SiVitest } from "react-icons/si";
+} from "react-icons/fa";
+import { SiVitest, SiJest } from "react-icons/si";
 import { IconDeviconPlainPostgresql } from "../Icon/IconDeviconPlainPostgresql";
 
 const links = [
@@ -32,16 +33,14 @@ const techStack = [
 ];
 
 export default function About() {
-  return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 min-h-screen">
-      {/* Your email link in the top-right corner */}
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage sidebar visibility
 
-      <a
-        href="mailto:fergus.gildea@hotmail.com"
-        className="absolute top-4 right-4 text-white text-lg hover:text-gray-400 transition-colors"
-      >
-        Contact: fergus.gildea@hotmail.com
-      </a>
+  // Toggle the menu (open/close)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  return (
+    <div className="relative isolate overflow-hidden bg-[#2b284c] py-24 sm:py-32 min-h-screen">
+      {/* Background styling with clip-path */}
       <div
         aria-hidden="true"
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -66,9 +65,102 @@ export default function About() {
           className="aspect-1097/845 w-[68.5625rem] bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
         />
       </div>
+
+      {/* Burger Menu Icon */}
+      <button
+        onClick={toggleMenu}
+        className={`fixed cursor-pointer top-4 left-4 text-white text-3xl sm: ${
+          isMenuOpen ? "hidden" : "block"
+        }`}
+      >
+        <FaBars />
+      </button>
+
+      {/* Slide-out Menu */}
+      <div
+        className={`fixed top-0 left-0 w-64 h-full  bg-opacity-0 transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={toggleMenu}
+          className="absolute  cursor-pointer top-4 right-4 text-white text-3xl"
+        >
+          <FaTimes />
+        </button>
+
+        {/* Sidebar Content */}
+        <div className="p-6">
+          <h2 className="text-white text-2xl font-bold">Menu</h2>
+          <ul className="mt-4 space-y-4">
+            {/* About Me Section */}
+            <li>
+              <a
+                href="#about"
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                About Me
+              </a>
+            </li>
+            {/* Tech Stack Section */}
+            <li>
+              <a
+                href="#tech-stack"
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                Tech Stack
+              </a>
+            </li>
+
+            {/* Personal Projects Section */}
+            <li>
+              <a
+                href="#projects"
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                Personal Projects
+              </a>
+            </li>
+            {/* Add the contact link */}
+            <li>
+              <a
+                href="mailto:fergus.gildea@hotmail.com"
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                Contact Me: fergus.gildea@hotmail.com
+              </a>
+            </li>
+
+            {/* Social Links */}
+            <li className="flex space-x-4">
+              <a
+                href={links[0].href}
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                <FaGithub className="text-3xl" />
+              </a>
+              <a
+                href={links[1].href}
+                className="text-white hover:text-gray-400"
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicked
+              >
+                <FaLinkedin className="text-3xl" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Main Content */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl pt-50">
+          <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
             Fergus Gildea - Software Developer
           </h2>
           <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
@@ -96,7 +188,7 @@ export default function About() {
               </a>
             ))}
           </div>
-          <div className="flex flex-col pt-8">
+          <div id="tech-stack" className="flex flex-col pt-8">
             <p className="text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
               Tech Stack
             </p>

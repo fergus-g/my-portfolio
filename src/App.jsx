@@ -5,7 +5,7 @@ import Carousel from "./components/Carousel/Carousel.jsx";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen scroll-smooth">
       <main className="flex-grow">
         <Hero />
       </main>

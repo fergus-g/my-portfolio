@@ -22,34 +22,16 @@ const projects = [
 export default function Carousel() {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % projects.length);
-    }, 5000); // Change every 5 seconds
-
-    return () => clearInterval(intervalId); // Clean up interval on unmount
-  }, []);
-
   const handleNext = () => {
     setActiveSlide((prev) => (prev + 1) % projects.length);
-    resetAutoSlide();
   };
 
   const handlePrev = () => {
     setActiveSlide((prev) => (prev - 1 + projects.length) % projects.length);
-    resetAutoSlide();
-  };
-
-  const resetAutoSlide = () => {
-    // Clear and reset the interval to start from the current slide
-    clearInterval(window.autoSlideInterval);
-    window.autoSlideInterval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % projects.length);
-    }, 5000);
   };
 
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div id="projects" className="flex flex-col items-center mt-10">
       <h2 className="text-2xl font-bold mb-4">Personal Projects</h2>
       <div className="flex flex-col-reverse md:flex-row items-center justify-center w-full gap-10 max-w-[90%] md:max-w-[75%] mx-auto">
         {/* Left: Text Section with Matching Height */}
@@ -60,13 +42,11 @@ export default function Carousel() {
           <p className="text-gray-700">{projects[activeSlide].description}</p>
         </div>
 
-        {/* Right: Carousel */}
         <div className="relative w-full md:w-2/3 h-full overflow-hidden">
-          {/* Wrapper for all slides */}
           <div
             className="flex transition-all duration-700 ease-in-out"
             style={{
-              transform: `translateX(-${activeSlide * 100}%)`, // Slide the wrapper, not the carousel
+              transform: `translateX(-${activeSlide * 100}%)`,
             }}
           >
             {projects.map((project, index) => (
@@ -87,7 +67,6 @@ export default function Carousel() {
             ))}
           </div>
 
-          {/* Buttons to control the slides */}
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <button onClick={handlePrev} className="btn btn-circle">
               ❮
