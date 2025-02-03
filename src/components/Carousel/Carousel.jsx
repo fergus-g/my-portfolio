@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const projects = [
   {
@@ -31,8 +31,13 @@ export default function Carousel() {
   };
 
   return (
-    <div id="projects" className="flex flex-col items-center mt-10">
-      <h2 className="text-2xl font-bold mb-4">Personal Projects</h2>
+    <div
+      id="projects"
+      className="relative isolate flex flex-col items-center  py-24 sm:py-32 min-h-screen bg-white"
+    >
+      <h2 className="my-10 text-2xl tracking-tight font-semibold text-gray-900 sm:text-3xl md:text-5xl ">
+        Personal Projects
+      </h2>
       <div className="flex flex-col-reverse md:flex-row items-center justify-center w-full gap-10 max-w-[90%] md:max-w-[75%] mx-auto">
         {/* Left: Text Section with Matching Height */}
         <div className="w-full md:w-1/3 bg-[#f4f4f4] p-6 rounded-2xl shadow-lg flex flex-col justify-center h-auto max-h-[400px] overflow-y-auto">
