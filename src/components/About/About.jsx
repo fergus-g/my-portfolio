@@ -48,7 +48,7 @@ export default function About() {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 mt-8">
         <img
           className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="../../../public/assets/Fergus.png"
+          src="/assets/Fergus.png"
           alt="Fergus Gildea"
         />
       </div>
