@@ -1,6 +1,5 @@
 import "./App.css";
 import Hero from "./components/Hero/Hero.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import Carousel from "./components/Carousel/Carousel.jsx";
 import About from "./components/About/About.jsx";
 import TechStack from "./components/TechStack/TechStack.jsx";
@@ -16,7 +15,6 @@ const App = () => {
       <About />
       <TechStack />
       <Carousel />
-      <Footer />
     </div>
   );
 };

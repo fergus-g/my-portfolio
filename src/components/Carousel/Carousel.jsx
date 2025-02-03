@@ -33,7 +33,7 @@ export default function Carousel() {
   return (
     <div
       id="projects"
-      className="relative isolate flex flex-col items-center  py-24 sm:py-32 min-h-screen bg-white"
+      className="relative isolate flex flex-col items-center  py-24 sm:py-32 bg-white"
     >
       <h2 className="my-10 text-2xl tracking-tight font-semibold text-gray-900 sm:text-3xl md:text-5xl ">
         Personal Projects
@@ -72,13 +72,18 @@ export default function Carousel() {
             ))}
           </div>
 
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <button onClick={handlePrev} className="btn btn-circle">
-              ❮
-            </button>
-            <button onClick={handleNext} className="btn btn-circle">
-              ❯
-            </button>
+          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between pointer-events-none">
+            {/* Buttons Wrapper - Mouse Events Enabled */}
+            <div className="z-20 pointer-events-auto">
+              <button onClick={handlePrev} className="btn btn-circle">
+                ❮
+              </button>
+            </div>
+            <div className="z-20 pointer-events-auto">
+              <button onClick={handleNext} className="btn btn-circle">
+                ❯
+              </button>
+            </div>
           </div>
         </div>
       </div>

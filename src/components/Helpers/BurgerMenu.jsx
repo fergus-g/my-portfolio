@@ -30,13 +30,13 @@ export default function BurgerMenu() {
   // Determine icon color based on scroll position
   const iconColor =
     (scrollPosition >= 0 && scrollPosition <= 500) ||
-    (scrollPosition >= 1500 && scrollPosition <= 2000)
+    (scrollPosition >= 1400 && scrollPosition <= 2000)
       ? "text-gray-300"
       : "text-gray-800";
 
   const backgroundColor =
     (scrollPosition >= 0 && scrollPosition <= 300) ||
-    (scrollPosition >= 1500 && scrollPosition <= 2000)
+    (scrollPosition >= 1400 && scrollPosition <= 1700)
       ? "bg-opacity-0"
       : "bg-[#2b284c] bg-opacity-90";
 
