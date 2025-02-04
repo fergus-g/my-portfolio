@@ -6,7 +6,7 @@ const projects = [
     title: "Spell Table Plus - In Development",
     description:
       "Spell Table Plus is an online tool designed to enhance the player's experience while using SpellTable. This application is built with JavaScript, HTML, and CSS. The plan is to eventually add a back end using Node.js to allow users to save their decks. I also plan to migrate this to React in the future.",
-    image: "/assets/Spelltable.png",
+    image: "/assets/spelltable.png",
     link: "https://spell-table-plus.vercel.app/",
   },
   {

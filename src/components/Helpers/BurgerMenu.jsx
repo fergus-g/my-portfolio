@@ -34,12 +34,6 @@ export default function BurgerMenu() {
       ? "text-gray-300"
       : "text-gray-800";
 
-  const backgroundColor =
-    (scrollPosition >= 0 && scrollPosition <= 300) ||
-    (scrollPosition >= 1400 && scrollPosition <= 1700)
-      ? "bg-opacity-0"
-      : "bg-[#2b284c] bg-opacity-90";
-
   return (
     <>
       {/* Burger Menu Icon */}
@@ -54,7 +48,7 @@ export default function BurgerMenu() {
 
       {/* Slide-out Menu */}
       <div
-        className={`fixed top-0 left-0 w-64 h-full ${backgroundColor} transition-all duration-300 ease-in-out transform ${
+        className={`fixed top-0 left-0 w-64 h-full bg-[#2b284c] bg-opacity-90 transition-all duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{
