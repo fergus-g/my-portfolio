@@ -4,6 +4,7 @@ import Carousel from "./components/Carousel/Carousel.jsx";
 import About from "./components/About/About.jsx";
 import TechStack from "./components/TechStack/TechStack.jsx";
 import BurgerMenu from "./components/Helpers/BurgerMenu.jsx";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <About />
       <TechStack />
       <Carousel />
+      <Analytics />
     </div>
   );
 };
