@@ -1,8 +1,19 @@
-# React + Vite
+# 🚀 My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio! This is where I showcase my projects, skills, and experience as I start my journey into becomig a software developer.
 
-Currently, two official plugins are available:
+## 🌐 Live Portfolio
+🔗 https://www.fergus-gildea.ie
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Preview
+![Portfolio Screenshot](https://github.com/fergus-g/my-portfolio/blob/main/public/assets/portfolio.png?raw=true)
+
+## 🛠️ Tech Stack
+- **Frontend:** React, TailwindCSS, HTML, CSS
+
+## 🎯 Future Plans and Improvements
+- Add in a Blog section
+- Update to the porfolio slider
+  
+
+
